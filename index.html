@@ -180,7 +180,13 @@ display: block !important;
 
 /* PDF Summary - Hidden on screen, shown only in print */
 .pdf-only {
-display: none;
+display: none !important;
+}
+
+@media screen {
+.pdf-only {
+display: none !important;
+}
 }
 </style>
 </head>
