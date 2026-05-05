@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Om Patel | Bio-data | AURELIAN UNION</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script id="tailwind-config">
+tailwind.config = {
+darkMode: "class",
+theme: {
+extend: {
+"colors": {
+"on-secondary-container": "#b6b8be",
+"inverse-surface": "#e2e2e5",
+"on-tertiary-container": "#626468",
+"on-surface": "#e2e2e5",
+"on-primary": "#2f3034",
+"surface-dim": "#121416",
+"inverse-on-surface": "#2f3133",
+"surface-container": "#1e2022",
+"surface-tint": "#c6c6ca",
+"primary-fixed-dim": "#c6c6ca",
+"background": "#121416",
+"tertiary-fixed-dim": "#c4c7ca",
+"secondary": "#c4c6cc",
+"on-secondary": "#2d3135",
+"on-tertiary-fixed": "#191c1f",
+"secondary-fixed": "#e0e2e8",
+"surface-container-high": "#282a2c",
+"secondary-fixed-dim": "#c4c6cc",
+"on-primary-fixed-variant": "#45474a",
+"on-primary-container": "#636468",
+"surface-bright": "#37393b",
+"primary-container": "#e2e2e6",
+"outline-variant": "#45474a",
+"secondary-container": "#46494e",
+"inverse-primary": "#5d5e62",
+"on-background": "#e2e2e5",
+"surface-container-low": "#1a1c1e",
+"surface": "#121416",
+"on-error": "#690005",
+"error-container": "#93000a",
+"tertiary": "#ffffff",
+"on-secondary-fixed-variant": "#44474b",
+"on-tertiary-fixed-variant": "#44474a",
+"tertiary-container": "#e0e2e6",
+"on-secondary-fixed": "#181c20",
+"on-primary-fixed": "#1a1c1f",
+"outline": "#8f9094",
+"tertiary-fixed": "#e1e2e6",
+"primary-fixed": "#e2e2e6",
+"on-surface-variant": "#c6c6ca",
+"surface-variant": "#333537",
+"error": "#ffb4ab",
+"surface-container-highest": "#333537",
+"surface-container-lowest": "#0c0e10",
+"on-tertiary": "#2e3134",
+"on-error-container": "#ffdad6",
+"primary": "#ffffff"
+},
+"borderRadius": {
+"DEFAULT": "0.125rem",
+"lg": "0.25rem",
+"xl": "0.5rem",
+"full": "0.75rem"
+},
+"spacing": {
+"sm": "8px",
+"lg": "24px",
+"xxl": "64px",
+"margin": "48px",
+"unit": "4px",
+"xs": "4px",
+"xl": "40px",
+"gutter": "24px",
+"md": "16px",
+"margin-page": "64px",
+"section-gap": "128px",
+"container-max": "1120px"
+},
+"fontFamily": {
+"body-md": ["Inter"],
+"h1": ["Inter"],
+"body-lg": ["Inter"],
+"h2": ["Inter"],
+"h3": ["Inter"],
+"body-sm": ["Inter"],
+"label-caps": ["Inter"]
+},
+"fontSize": {
+"body-md": ["16px",{"lineHeight": "1.6","letterSpacing": "0","fontWeight": "400"}],
+"h1": ["48px",{"lineHeight": "1.1","letterSpacing": "-0.02em","fontWeight": "600"}],
+"body-lg": ["18px",{"lineHeight": "1.6","letterSpacing": "0","fontWeight": "400"}],
+"h2": ["32px",{"lineHeight": "1.2","letterSpacing": "-0.02em","fontWeight": "600"}],
+"h3": ["24px",{"lineHeight": "1.3","letterSpacing": "-0.01em","fontWeight": "500"}],
+"body-sm": ["14px",{"lineHeight": "1.5","letterSpacing": "0","fontWeight": "400"}],
+"label-caps": ["12px",{"lineHeight": "1","letterSpacing": "0.05em","fontWeight": "600"}]
+}
+},
+},
+}
+</script>
+<style>
+.glass-card {
+background: rgba(40, 42, 44, 0.4);
+backdrop-filter: blur(12px);
+border: 1px solid rgba(226, 226, 229, 0.1);
+}
+.glass-card:hover {
+border-color: rgba(226, 226, 229, 0.3);
+}
+.platinum-divider {
+height: 1px;
+background: rgba(226, 226, 229, 0.2);
+width: 100%;
+}
+.profile-upload-wrapper {
+position: relative;
+cursor: pointer;
+}
+.profile-upload-overlay {
+position: absolute;
+inset: 0;
+background: rgba(0,0,0,0.7);
+display: flex;
+align-items: center;
+justify-content: center;
+opacity: 0;
+transition: opacity 0.3s ease;
+border-radius: 0.75rem;
+}
+.profile-upload-wrapper:hover .profile-upload-overlay {
+opacity: 1;
+}
+#imageInput {
+display: none;
+}
+.loading-overlay {
+position: fixed;
+inset: 0;
+background: rgba(18, 20, 22, 0.95);
+display: none;
+align-items: center;
+justify-content: center;
+z-index: 9999;
+}
+.loading-overlay.active {
+display: flex;
+}
+
+/* Print/PDF Styles */
+@media print {
+* {
+-webkit-print-color-adjust: exact !important;
+print-color-adjust: exact !important;
+color-adjust: exact !important;
+}
+body {
+background: #121416 !important;
+background-color: #121416 !important;
+padding: 0 !important;
+margin: 0 !important;
+}
+/* Hide the full website content */
+header,
+main,
+footer,
+nav {
+display: none !important;
+}
+/* Show only the PDF summary */
+.pdf-only {
+display: block !important;
+}
+}
+
+/* PDF Summary - Hidden on screen, shown only in print */
+.pdf-only {
+display: none;
+}
+</style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary/30">
+<div class="loading-overlay" id="loadingOverlay">
+<div class="text-center">
+<div class="font-h3 text-h3 text-primary mb-4">Generating PDF...</div>
+<div class="font-body-md text-body-md text-on-surface-variant">Please wait</div>
+</div>
+</div>
+
+<!-- PDF ONLY - Single Page Summary -->
+<div class="pdf-only" style="background: #121416; color: #e2e2e5; padding: 40px 50px; font-family: 'Inter', sans-serif; min-height: 100vh; display: flex; flex-direction: column;">
+<div style="max-width: 700px; margin: 0 auto; flex: 1; display: flex; flex-direction: column;">
+<!-- Header with Contact -->
+<div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px;">
+<div style="flex: 1;">
+<h2 style="font-size: 24px; font-weight: 600; color: #ffffff; margin: 0; line-height: 1.3;">Data Engineer<br/>Moody's Corporation</h2>
+</div>
+<div style="text-align: right; font-size: 13px; color: #c6c6ca; line-height: 1.6;">
+<div>+91 9173384264</div>
+<div>Ompatel932003@gmail.com</div>
+</div>
+</div>
+
+<!-- Name and Photo Section -->
+<div style="display: flex; gap: 35px; align-items: center; margin-bottom: 35px; padding-bottom: 25px; border-bottom: 2px solid #45474a;">
+<div style="flex: 1;">
+<h1 style="font-size: 48px; font-weight: 700; color: #ffffff; margin: 0; letter-spacing: -0.02em;">Om Patel</h1>
+<p style="font-size: 16px; color: #c6c6ca; margin: 10px 0 0 0;">AI & ML Specialist | ₹16.90 LPA (PPO)</p>
+</div>
+<div style="flex-shrink: 0;">
+<img src="IMG_2233.JPG" alt="Om Patel" style="width: 150px; height: 190px; object-fit: cover; object-position: center 20%; border-radius: 10px; border: 3px solid rgba(255,255,255,0.2);"/>
+</div>
+</div>
+
+<!-- Three Column Layout -->
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 35px; flex: 1;">
+<!-- Column 1 -->
+<div>
+<h3 style="font-size: 16px; font-weight: 600; color: #ffffff; margin: 0 0 15px 0; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid #45474a; padding-bottom: 8px;">Work Experience</h3>
+<div style="font-size: 13px; line-height: 1.7; color: #c6c6ca; margin-bottom: 25px;">
+<div style="font-weight: 600; color: #ffffff; margin-bottom: 4px; font-size: 14px;">Data Engineer, Intern</div>
+<div style="font-style: italic; margin-bottom: 4px;">Jan 2026 – present</div>
+<div>Moody's Corporation, Gurugram</div>
+</div>
+
+<h3 style="font-size: 16px; font-weight: 600; color: #ffffff; margin: 0 0 15px 0; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid #45474a; padding-bottom: 8px;">Personal Info</h3>
+<ul style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.9; color: #c6c6ca;">
+<li>DOB: 09 March 2003</li>
+<li>Age: 23 Years</li>
+<li>Birth: Lunavada, 12:29 AM</li>
+<li>Height: 5'7"</li>
+<li>Weight: 61 kg</li>
+<li>Complexion: Light Neutral</li>
+<li>Religion: Hindu</li>
+<li>Languages: English, Hindi, Gujarati</li>
+</ul>
+</div>
+
+<!-- Column 2 -->
+<div>
+<h3 style="font-size: 16px; font-weight: 600; color: #ffffff; margin: 0 0 15px 0; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid #45474a; padding-bottom: 8px;">Education</h3>
+<div style="font-size: 13px; line-height: 1.7; color: #c6c6ca; margin-bottom: 18px;">
+<div style="font-weight: 600; color: #ffffff; font-size: 14px;">Jaypee Institute of IT</div>
+<div style="font-style: italic;">Aug 2023 – May 2026</div>
+<div>B.Tech Computer Science</div>
+</div>
+<div style="font-size: 13px; line-height: 1.7; color: #c6c6ca; margin-bottom: 18px;">
+<div style="font-weight: 600; color: #ffffff; font-size: 14px;">A.D. Patel Institute of IT</div>
+<div style="font-style: italic;">Nov 2022 – Aug 2023</div>
+<div>Computer Science</div>
+</div>
+<div style="font-size: 13px; color: #c6c6ca; line-height: 1.8; margin-bottom: 25px;">
+<div>• Class 12: 74.6%</div>
+<div>• Class 10: 75%</div>
+<div>• JEE: 90.18 percentile</div>
+</div>
+
+<h3 style="font-size: 16px; font-weight: 600; color: #ffffff; margin: 0 0 15px 0; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid #45474a; padding-bottom: 8px;">Interests</h3>
+<ul style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.9; color: #c6c6ca;">
+<li>Geopolitics</li>
+<li>Finance & Investment</li>
+<li>Cricket, Badminton</li>
+</ul>
+</div>
+
+<!-- Column 3 -->
+<div>
+<h3 style="font-size: 16px; font-weight: 600; color: #ffffff; margin: 0 0 15px 0; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid #45474a; padding-bottom: 8px;">Family</h3>
+<ul style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.9; color: #c6c6ca;">
+<li>Father: Mr. Dilipkumar Vitthaldas Patel (Teacher)</li>
+<li>Mother: Mrs. Sushilaben Dilipkumar Patel (Teacher)</li>
+<li>Maternal Grandfather: Mr. Gordhanbhai Hirabhai Patel</li>
+<li>Native: Umreth & Lunavada, Mahisagar</li>
+</ul>
+
+<h3 style="font-size: 16px; font-weight: 600; color: #ffffff; margin: 25px 0 15px 0; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid #45474a; padding-bottom: 8px;">Address</h3>
+<div style="font-size: 13px; line-height: 1.8; color: #c6c6ca;">
+<div style="margin-bottom: 12px;"><strong style="color: #ffffff;">Current:</strong><br/>11, Gokul Bunglows, Nr. Thamna Chokdi, Umreth</div>
+<div><strong style="color: #ffffff;">Permanent:</strong><br/>At. Post Kidia, Ta. Lunavada, Dist. Mahisagar</div>
+</div>
+</div>
+</div>
+
+<!-- Footer -->
+<div style="text-align: center; padding-top: 20px; margin-top: 30px; border-top: 2px solid #45474a; font-size: 12px; color: #8f9094;">
+© 2026 Om Patel • Privately Circulated Bio-data
+</div>
+</div>
+</div>
+<!-- END PDF ONLY -->
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30">
+<div class="max-w-container-max mx-auto flex justify-between items-center px-margin-page py-6">
+<div class="font-h2 text-h2 font-bold tracking-tighter text-primary">Om Patel</div>
+<nav class="hidden md:flex gap-10">
+<a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1 hover:text-primary transition-colors duration-300" href="#">Heritage</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Profession</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Lifestyle</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Family</a>
+</nav>
+<button onclick="generatePDF()" class="bg-primary text-on-primary font-label-caps text-label-caps px-6 py-2 rounded-full scale-95 duration-200 transition-transform hover:scale-100">Download PDF</button>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-page pt-32 pb-section-gap" id="biodata-content">
+<!-- Hero Section: Portrait & Identity -->
+<section class="flex flex-col md:flex-row gap-section-gap items-center mb-section-gap">
+<div class="relative w-full md:w-1/2 group">
+<div class="absolute -inset-4 border border-primary/20 rounded-xl -z-10 transition-transform group-hover:scale-105 duration-500"></div>
+<div class="aspect-[4/5] overflow-hidden rounded-xl border border-primary/20 relative">
+<img id="profileImage" class="w-full h-full object-cover object-top grayscale-[20%] contrast-110" src="IMG_2233.JPG" alt="Profile Photo" style="object-position: center 20%;"/>
+<div class="absolute bottom-8 left-8">
+<span class="font-h1 text-h1 text-primary drop-shadow-2xl">Om Patel</span>
+</div>
+</div>
+</div>
+<div class="w-full md:w-1/2 flex flex-col gap-8">
+<div>
+<div class="font-label-caps text-label-caps text-on-surface-variant mb-4">About</div>
+<h2 class="font-h2 text-h2 text-on-surface">Personal Information</h2>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="flex flex-col gap-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Date of Birth</span>
+<span class="font-body-lg text-body-lg text-on-surface">09 March 2003</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Age</span>
+<span class="font-body-lg text-body-lg text-on-surface">23 Years</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Place of Birth</span>
+<span class="font-body-lg text-body-lg text-on-surface">Lunavada</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Time of Birth</span>
+<span class="font-body-lg text-body-lg text-on-surface">12:29 AM</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Religion</span>
+<span class="font-body-lg text-body-lg text-on-surface">Hindu</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Height & Weight</span>
+<span class="font-body-lg text-body-lg text-on-surface">5'7" | 61.4 kg</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Complexion</span>
+<span class="font-body-lg text-body-lg text-on-surface">Light Neutral</span>
+</div>
+<div class="flex flex-col gap-2 col-span-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Languages</span>
+<span class="font-body-lg text-body-lg text-on-surface">English, Hindi, Gujarati</span>
+</div>
+</div>
+</div>
+</section>
+<div class="platinum-divider mb-section-gap"></div>
+<!-- Professional Spotlight (PPO Highlight) -->
+<section class="mb-section-gap">
+<div class="glass-card p-12 rounded-xl relative overflow-hidden">
+<div class="absolute top-0 right-0 p-8 opacity-5">
+<span class="material-symbols-outlined text-[120px]">work_history</span>
+</div>
+<div class="relative z-10">
+<div class="font-label-caps text-label-caps text-on-surface-variant mb-4">Professional Career</div>
+<div class="flex items-center gap-4 mb-12">
+<img src="moodys_white.svg" alt="Moody's Corporation" class="h-10 opacity-90"/>
+</div>
+<div class="grid md:grid-cols-3 gap-12">
+<div class="space-y-4">
+<h3 class="font-h3 text-h3 text-primary">Data Engineer (Intern)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Moody's Corporation, Gurugram</p>
+</div>
+<div class="space-y-4">
+<h3 class="font-h3 text-h3 text-primary">Specialization</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">AI, Machine Learning, Generative AI</p>
+</div>
+<div class="bg-surface-container-high border border-outline-variant p-8 rounded-xl scale-105">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary">verified</span>
+<span class="font-label-caps text-label-caps text-primary">Career Milestone</span>
+</div>
+<div class="font-h3 text-h3 text-primary mb-2">₹16.90 LPA</div>
+<p class="font-body-md text-body-md text-on-surface">Secured Pre-Placement Offer (PPO) during engineering studies.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Academic Journey -->
+<section class="mb-section-gap">
+<div class="flex flex-col gap-12">
+<div class="text-center">
+<div class="font-label-caps text-label-caps text-on-surface-variant mb-4">Academic Foundation</div>
+<h2 class="font-h2 text-h2 text-on-surface">Academic Excellence & Pedigree</h2>
+</div>
+<div class="grid md:grid-cols-2 gap-gutter">
+<div class="glass-card p-10 rounded-xl flex flex-col gap-6">
+<div class="flex justify-between items-start">
+<div>
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2 block">Current Degree</span>
+<h4 class="font-h3 text-h3 text-on-surface mb-2">B.Tech in Computer Science</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Jaypee Institute of Information Technology, Noida</p>
+</div>
+<div class="text-right">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2 block">JEE Percentile</span>
+<div class="font-h3 text-h3 text-primary mb-1">90.18</div>
+<p class="font-label-caps text-[10px] text-on-surface-variant">AIR: 88,340</p>
+</div>
+</div>
+</div>
+<div class="glass-card p-10 rounded-xl">
+<div class="font-label-caps text-label-caps text-on-surface-variant mb-8 block">Historical Performance</div>
+<div class="flex flex-col gap-6">
+<div class="flex justify-between border-b border-outline-variant/30 pb-4">
+<span class="font-body-md text-body-md text-on-surface-variant">Class 12</span>
+<span class="font-body-md text-body-md text-on-surface">74.6% (Divine Life International)</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/30 pb-4">
+<span class="font-body-md text-body-md text-on-surface-variant">Class 10</span>
+<span class="font-body-md text-body-md text-on-surface">75% (Jawahar Navodaya Vidyalaya)</span>
+</div>
+<div class="flex justify-between">
+<span class="font-body-md text-body-md text-on-surface-variant">Foundation</span>
+<span class="font-body-md text-body-md text-on-surface">Thamna Education Institute</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="platinum-divider mb-section-gap"></div>
+<!-- Family Background -->
+<section class="mb-section-gap">
+<div class="flex flex-col gap-gutter">
+<div class="text-center mb-8">
+<div class="font-label-caps text-label-caps text-on-surface-variant mb-4">Family Background</div>
+<h2 class="font-h2 text-h2 text-on-surface">The Patel Family</h2>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-gutter">
+<div class="border-l border-outline-variant pl-6 py-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2 block">Father</span>
+<div class="font-body-lg text-body-lg text-on-surface mb-1">Mr. Dilipkumar Vitthaldas Patel</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">Teacher</div>
+</div>
+<div class="border-l border-outline-variant pl-6 py-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2 block">Mother</span>
+<div class="font-body-lg text-body-lg text-on-surface mb-1">Mrs. Sushilaben Dilipkumar Patel</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">Teacher</div>
+</div>
+<div class="border-l border-outline-variant pl-6 py-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2 block">Maternal Grandfather</span>
+<div class="font-body-lg text-body-lg text-on-surface mb-1">Mr. Gordhanbhai Hirabhai Patel</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">Kheroli</div>
+</div>
+<div class="border-l border-outline-variant pl-6 py-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2 block">Native</span>
+<div class="font-body-lg text-body-lg text-on-surface mb-1">Umreth & Lunavada</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">Mahisagar District</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Lifestyle & Interests -->
+<section class="mb-section-gap">
+<div class="grid md:grid-cols-2 gap-gutter">
+<div class="glass-card aspect-video rounded-xl overflow-hidden relative">
+<img class="w-full h-full object-cover opacity-60" src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=800&h=600&fit=crop" alt="Sports"/>
+<div class="absolute inset-0 p-10 flex flex-col justify-end bg-gradient-to-t from-surface-dim via-surface-dim/50 to-transparent">
+<h4 class="font-h3 text-h3 text-primary mb-2">Sports & Athletics</h4>
+<p class="font-body-md text-body-md text-on-surface">Actively engaged in cricket, badminton, and competitive sports.</p>
+</div>
+</div>
+<div class="flex flex-col gap-gutter">
+<div class="glass-card p-10 rounded-xl flex-1">
+<div class="flex items-center gap-4 mb-4">
+<span class="material-symbols-outlined text-primary">public</span>
+<h4 class="font-h3 text-h3 text-on-surface">Geopolitics</h4>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Deep interest in global affairs, international relations, and geopolitical dynamics.</p>
+</div>
+<div class="glass-card p-10 rounded-xl flex-1">
+<div class="flex items-center gap-4 mb-4">
+<span class="material-symbols-outlined text-primary">account_balance</span>
+<h4 class="font-h3 text-h3 text-on-surface">Finance</h4>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Passionate about financial markets, investment strategies, and economic analysis.</p>
+</div>
+</div>
+</div>
+<!-- Photo Gallery -->
+<div class="mt-gutter">
+<div class="text-center mb-12">
+<div class="font-label-caps text-label-caps text-on-surface-variant mb-4">Gallery</div>
+<h2 class="font-h2 text-h2 text-on-surface">Moments & Memories</h2>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-gutter">
+<div class="glass-card aspect-square rounded-xl overflow-hidden">
+<img class="w-full h-full object-cover object-center grayscale-[20%] contrast-110 hover:scale-110 transition-transform duration-500" src="IMG_1403.JPG" alt="Gallery Photo 1" style="object-position: center 30%;"/>
+</div>
+<div class="glass-card aspect-square rounded-xl overflow-hidden">
+<img class="w-full h-full object-cover object-center grayscale-[20%] contrast-110 hover:scale-110 transition-transform duration-500" src="IMG_0905 (1).JPG" alt="Gallery Photo 2" style="object-position: center 25%;"/>
+</div>
+<div class="glass-card aspect-square rounded-xl overflow-hidden">
+<img class="w-full h-full object-cover object-center grayscale-[20%] contrast-110 hover:scale-110 transition-transform duration-500" src="20241127_101940.jpg" alt="Gallery Photo 3"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="glass-card p-16 rounded-2xl border border-outline-variant/30">
+<div class="max-w-3xl mx-auto text-center">
+<h2 class="font-h2 text-h2 text-on-surface mb-16">Contact Information</h2>
+<div class="grid sm:grid-cols-2 gap-12 text-left mb-16">
+<div class="flex items-start gap-6">
+<div class="bg-surface-container-high p-4 rounded-full border border-outline-variant/50">
+<span class="material-symbols-outlined text-primary">call</span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2 block">Phone</span>
+<div class="font-body-lg text-body-lg text-on-surface">+91 9173384264</div>
+</div>
+</div>
+<div class="flex items-start gap-6">
+<div class="bg-surface-container-high p-4 rounded-full border border-outline-variant/50">
+<span class="material-symbols-outlined text-primary">mail</span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2 block">Email</span>
+<div class="font-body-lg text-body-lg text-on-surface">ompatel932003@gmail.com</div>
+</div>
+</div>
+<div class="flex items-start gap-6">
+<div class="bg-surface-container-high p-4 rounded-full border border-outline-variant/50">
+<span class="material-symbols-outlined text-primary">location_on</span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2 block">Current Address</span>
+<div class="font-body-lg text-body-lg text-on-surface">11, Gokul Bunglows, Nr. Thamna Chokdi, Umreth</div>
+</div>
+</div>
+<div class="flex items-start gap-6">
+<div class="bg-surface-container-high p-4 rounded-full border border-outline-variant/50">
+<span class="material-symbols-outlined text-primary">home</span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2 block">Permanent Address</span>
+<div class="font-body-lg text-body-lg text-on-surface">At. Post Kidia, Ta. Lunavada, Dist. Mahisagar</div>
+</div>
+</div>
+</div>
+<div>
+<button onclick="generatePDF()" class="bg-primary text-on-primary font-label-caps text-label-caps px-12 py-4 rounded-full hover:bg-primary-fixed-dim transition-all duration-300">REQUEST FULL BIO-DATA PDF</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-8 px-margin-page flex flex-col items-center gap-unit bg-surface-container border-t border-outline-variant/20">
+<p class="font-body-sm text-body-sm text-on-surface-variant text-center">© 2026 Om Patel • Privately Circulated Bio-data</p>
+</footer>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 py-2 md:hidden bg-surface-container-high/90 backdrop-blur-xl border-t border-outline-variant/30 shadow-2xl rounded-t-2xl">
+<div class="flex flex-col items-center justify-center bg-surface p-2 rounded-lg text-primary Active: scale-90 transition-all">
+<span class="material-symbols-outlined">person_pin</span>
+<span class="font-label-caps text-label-caps mt-1">Profile</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant/50 rounded-lg">
+<span class="material-symbols-outlined">work</span>
+<span class="font-label-caps text-label-caps mt-1">Career</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant/50 rounded-lg">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-label-caps text-label-caps mt-1">Family</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant/50 rounded-lg">
+<span class="material-symbols-outlined">contact_mail</span>
+<span class="font-label-caps text-label-caps mt-1">Connect</span>
+</div>
+</nav>
+<script>
+// PDF Generation using Browser Print (Much Better Quality)
+function generatePDF() {
+// Use browser's native print dialog for best PDF quality
+window.print();
+}
+
+// Alternative: Keep the html2pdf as backup
+async function generatePDFAlternative() {
+const loadingOverlay = document.getElementById('loadingOverlay');
+loadingOverlay.classList.add('active');
+
+try {
+const element = document.body;
+
+const opt = {
+margin: 0,
+filename: 'Om_Patel_BioData.pdf',
+image: { type: 'jpeg', quality: 0.98 },
+html2canvas: { 
+scale: 2,
+useCORS: true,
+logging: false,
+backgroundColor: '#121416',
+width: 794,
+windowWidth: 794
+},
+jsPDF: { 
+unit: 'mm', 
+format: 'a4', 
+orientation: 'portrait'
+},
+pagebreak: { 
+mode: ['avoid-all', 'css', 'legacy']
+}
+};
+
+await html2pdf().set(opt).from(element).save();
+loadingOverlay.classList.remove('active');
+
+} catch (err) {
+console.error('PDF generation error:', err);
+loadingOverlay.classList.remove('active');
+alert('Error generating PDF. Please try again.');
+}
+}
+</script>
+</body>
+</html>
